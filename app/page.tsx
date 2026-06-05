@@ -132,6 +132,29 @@ const reviews = [
   },
 ];
 
+const faqItems = [
+  {
+    question: "Как забронировать экскурсию?",
+    answer: "Через Telegram или форму на сайте.",
+  },
+  {
+    question: "Есть ли русскоязычный гид?",
+    answer: "Да, все гиды русскоязычные.",
+  },
+  {
+    question: "Как оплатить?",
+    answer: "Картой, переводом, наличными.",
+  },
+  {
+    question: "За сколько дней бронировать?",
+    answer: "Желательно за 2-3 дня.",
+  },
+  {
+    question: "Включён ли трансфер?",
+    answer: "Да, трансфер включён в стоимость.",
+  },
+];
+
 const travelAgencyJsonLd = {
   "@context": "https://schema.org",
   "@type": "TravelAgency",
@@ -155,48 +178,14 @@ const travelAgencyJsonLd = {
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "Как забронировать экскурсию?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Через Telegram или форму на сайте.",
-      },
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
     },
-    {
-      "@type": "Question",
-      name: "Есть ли русскоязычный гид?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Да, все гиды русскоязычные.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Как оплатить?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Картой, переводом, наличными.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "За сколько дней бронировать?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Желательно за 2-3 дня.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Включён ли трансфер?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Да, трансфер включён в стоимость.",
-      },
-    },
-  ],
+  })),
 };
 
 function SectionTitle({ children }: { children: ReactNode }) {
@@ -426,6 +415,38 @@ export default function Home() {
               <p className="mt-3 text-sm text-slate-400">{item.date}</p>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="bg-white px-5 pb-12 pt-2 sm:px-10 lg:px-[4.6vw]">
+        <div className="mx-auto max-w-5xl">
+          <SectionTitle>Частые вопросы</SectionTitle>
+          <div className="grid gap-4 md:grid-cols-2">
+            {faqItems.map((item, index) => (
+              <article
+                key={item.question}
+                className="rounded-lg border border-[#0C717F]/[0.12] bg-white p-5 shadow-[0_10px_28px_rgba(16,36,63,0.10)]"
+              >
+                <div className="flex items-start gap-4">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#0C717F] text-sm font-extrabold text-white">
+                    {index + 1}
+                  </span>
+                  <div>
+                    <h3 className="text-lg font-extrabold leading-6 text-arabella-ink">
+                      {item.question}
+                    </h3>
+                    <p className="mt-2 text-sm leading-6 text-slate-600">
+                      {item.answer}
+                    </p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="mt-6 rounded-lg bg-[#0C717F]/[0.08] px-5 py-4 text-center text-sm font-semibold text-[#0C717F]">
+            Остались вопросы? Напишите в Telegram - подскажем по программе,
+            датам и оплате.
+          </div>
         </div>
       </section>
 
