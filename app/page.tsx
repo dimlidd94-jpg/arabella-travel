@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import {
   Car,
   CheckCircle2,
@@ -131,7 +132,27 @@ const reviews = [
   },
 ];
 
-function SectionTitle({ children }) {
+const travelAgencyJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  name: "Arabella Travel",
+  description: "Экскурсии, развлечения и билеты в Эмиратах под ключ",
+  url: "https://arabella-travel.ru",
+  telephone: "",
+  email: "",
+  areaServed: [
+    {
+      "@type": "City",
+      name: "Dubai",
+    },
+    {
+      "@type": "City",
+      name: "Abu Dhabi",
+    },
+  ],
+};
+
+function SectionTitle({ children }: { children: ReactNode }) {
   return (
     <h2 className="mb-7 text-center text-3xl font-extrabold text-[#0C717F]">
       {children}
@@ -142,6 +163,13 @@ function SectionTitle({ children }) {
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(travelAgencyJsonLd),
+        }}
+      />
+
       <section className="relative min-h-screen overflow-hidden bg-arabella-teal text-white">
         <div
           className="absolute inset-0 bg-cover bg-center"

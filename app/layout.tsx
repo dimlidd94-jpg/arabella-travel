@@ -1,11 +1,24 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { Send } from "lucide-react";
 import "./globals.css";
 
 export const metadata = {
+  metadataBase: new URL("https://arabella-travel.ru"),
   title: "Arabella Travel",
   description: "Экскурсии, развлечения и билеты в Эмиратах под ключ.",
+  alternates: {
+    canonical: "https://arabella-travel.ru",
+  },
+  openGraph: {
+    title: "Arabella Travel",
+    description: "Экскурсии, развлечения и билеты в Эмиратах под ключ.",
+    url: "https://arabella-travel.ru",
+    siteName: "Arabella Travel",
+    locale: "ru_RU",
+    type: "website",
+  },
 };
 
 const menuItems = [
@@ -28,7 +41,7 @@ function TelegramButton({ className = "" }) {
   );
 }
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ru">
       <body className="min-h-screen bg-white antialiased">
