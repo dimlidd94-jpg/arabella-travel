@@ -4,16 +4,21 @@ import type { ReactNode } from "react";
 import { Send } from "lucide-react";
 import "./globals.css";
 
+const siteTitle =
+  "Экскурсии в Дубае на русском | Arabella Travel — местный организатор";
+const siteDescription =
+  "Экскурсии, сафари, яхты и билеты в Дубае и Абу-Даби. Местный русскоязычный организатор. Без предоплат, трансфер включён. Более 300 отзывов на Авито.";
+
 export const metadata = {
   metadataBase: new URL("https://arabella-travel.ru"),
-  title: "Arabella Travel",
-  description: "Экскурсии, развлечения и билеты в Эмиратах под ключ.",
+  title: siteTitle,
+  description: siteDescription,
   alternates: {
     canonical: "https://arabella-travel.ru",
   },
   openGraph: {
-    title: "Arabella Travel",
-    description: "Экскурсии, развлечения и билеты в Эмиратах под ключ.",
+    title: siteTitle,
+    description: siteDescription,
     url: "https://arabella-travel.ru",
     siteName: "Arabella Travel",
     locale: "ru_RU",
@@ -32,7 +37,7 @@ const menuItems = [
 function TelegramButton({ className = "" }) {
   return (
     <Link
-      href="https://t.me/"
+      href="https://t.me/margules"
       className={`inline-flex h-12 items-center justify-center gap-2 rounded-md bg-arabella-orange px-5 text-sm font-bold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-[#c96f2d] focus:outline-none focus:ring-2 focus:ring-white/70 focus:ring-offset-2 focus:ring-offset-arabella-teal ${className}`}
     >
       <Send aria-hidden="true" size={18} strokeWidth={2.5} />

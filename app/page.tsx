@@ -223,10 +223,11 @@ export default function Home() {
         <div className="relative flex min-h-screen w-full flex-col justify-center px-5 pb-36 pt-32 sm:px-10 lg:px-[4.6vw]">
           <div className="max-w-[820px] lg:max-w-[54vw]">
             <h1 className="text-4xl font-extrabold leading-tight drop-shadow-[0_5px_16px_rgba(0,0,0,0.22)] sm:text-5xl lg:text-[58px] xl:text-[64px]">
-              Эмираты под ключ - экскурсии, развлечения, билеты
+              Дубай и Абу-Даби без забот — экскурсии, сафари, яхты
             </h1>
             <p className="mt-7 max-w-xl text-xl leading-8 text-white/92 sm:text-2xl sm:leading-10">
-              297 клиентов. Дубай и Абу-Даби с местным организатором
+              Местный организатор в ОАЭ. Без предоплат, трансфер включён,
+              русскоязычный гид. Более 300 отзывов на Авито.
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <Link
@@ -236,7 +237,7 @@ export default function Home() {
                 Выбрать экскурсию
               </Link>
               <Link
-                href="https://t.me/"
+                href="https://t.me/margules"
                 className="inline-flex h-14 items-center justify-center gap-3 rounded-md border-2 border-white/80 px-8 text-base font-bold text-white transition hover:bg-white/10"
               >
                 <Send aria-hidden="true" size={22} strokeWidth={2.5} />
@@ -458,7 +459,7 @@ export default function Home() {
           Напишите - составим программу под вас
         </p>
         <Link
-          href="https://t.me/"
+          href="https://t.me/margules"
           className="mx-auto mt-5 inline-flex h-14 items-center justify-center gap-3 rounded-md bg-arabella-orange px-10 text-lg font-bold text-white"
         >
           <Send aria-hidden="true" size={22} strokeWidth={2.5} />
