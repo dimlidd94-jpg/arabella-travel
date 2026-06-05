@@ -152,6 +152,53 @@ const travelAgencyJsonLd = {
   ],
 };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Как забронировать экскурсию?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Через Telegram или форму на сайте.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Есть ли русскоязычный гид?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Да, все гиды русскоязычные.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Как оплатить?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Картой, переводом, наличными.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "За сколько дней бронировать?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Желательно за 2-3 дня.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Включён ли трансфер?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Да, трансфер включён в стоимость.",
+      },
+    },
+  ],
+};
+
 function SectionTitle({ children }: { children: ReactNode }) {
   return (
     <h2 className="mb-7 text-center text-3xl font-extrabold text-[#0C717F]">
@@ -167,6 +214,12 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(travelAgencyJsonLd),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqJsonLd),
         }}
       />
 
