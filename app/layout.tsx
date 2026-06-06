@@ -17,6 +17,10 @@ export const metadata = {
   alternates: {
     canonical: "https://arabella-travel.ru",
   },
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
+  },
   openGraph: {
     title: siteTitle,
     description: siteDescription,
@@ -83,7 +87,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </div>
         </noscript>
         <div className="flex min-h-screen flex-col">
-          <header className="absolute top-0 z-50 w-full text-white">
+          <header className="fixed top-0 z-50 w-full border-b border-white/10 bg-[#0C717F]/[0.92] text-white shadow-[0_10px_30px_rgba(5,35,48,0.16)] backdrop-blur-md">
             <div className="mx-auto flex h-24 w-full items-center justify-between gap-6 px-5 sm:px-10 lg:px-[4.6vw]">
               <Link
                 href="/"
