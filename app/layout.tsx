@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import type { ReactNode } from "react";
-import { Send } from "lucide-react";
+import { Menu, MessageCircle, Send } from "lucide-react";
 import "./globals.css";
 
 const siteTitle =
@@ -87,8 +87,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </div>
         </noscript>
         <div className="flex min-h-screen flex-col">
-          <header className="fixed top-0 z-50 w-full border-b border-white/10 bg-[#0C717F]/[0.92] text-white shadow-[0_10px_30px_rgba(5,35,48,0.16)] backdrop-blur-md">
-            <div className="mx-auto flex h-24 w-full items-center justify-between gap-6 px-5 sm:px-10 lg:px-[4.6vw]">
+          <header className="fixed top-0 z-50 w-full border-b border-transparent bg-gradient-to-b from-[#043E48]/85 to-transparent text-white lg:border-white/10 lg:bg-[#0C717F]/[0.92] lg:bg-none lg:shadow-[0_10px_30px_rgba(5,35,48,0.16)] lg:backdrop-blur-md">
+            <div className="mx-auto flex h-28 w-full items-center justify-between gap-6 px-6 sm:px-10 lg:h-24 lg:px-[4.6vw]">
               <Link
                 href="/"
                 className="flex shrink-0 items-center gap-3"
@@ -100,7 +100,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   width={190}
                   height={215}
                   priority
-                  className="h-20 w-auto object-contain"
+                  className="h-20 w-auto object-contain sm:h-24 lg:h-20"
                 />
               </Link>
 
@@ -117,9 +117,26 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               </nav>
 
               <TelegramButton className="hidden shrink-0 sm:inline-flex" />
+
+              <div className="flex items-center gap-5 lg:hidden">
+                <Link
+                  href="https://t.me/margules"
+                  aria-label="Связаться в Telegram"
+                  className="inline-flex h-12 w-12 items-center justify-center rounded-full text-white"
+                >
+                  <MessageCircle aria-hidden="true" size={42} strokeWidth={2.4} />
+                </Link>
+                <button
+                  type="button"
+                  aria-label="Открыть меню"
+                  className="inline-flex h-12 w-12 items-center justify-center rounded-full text-white"
+                >
+                  <Menu aria-hidden="true" size={48} strokeWidth={2.4} />
+                </button>
+              </div>
             </div>
 
-            <nav className="px-5 pb-4 pt-1 sm:px-10 lg:hidden">
+            <nav className="hidden px-5 pb-4 pt-1 sm:px-10 lg:hidden">
               <div className="mx-auto flex gap-4 overflow-x-auto text-sm font-bold">
                 {menuItems.map((item) => (
                   <Link

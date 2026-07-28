@@ -2,13 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import {
+  BadgePercent,
   Car,
   CheckCircle2,
+  CircleDollarSign,
   Map,
   Sailboat,
   Send,
+  ShieldCheck,
   Star,
-  Ticket,
+  UserCheck,
   UserRound,
   UsersRound,
 } from "lucide-react";
@@ -84,6 +87,29 @@ const benefits = [
     icon: CheckCircle2,
     title: "Все включено под ключ",
     text: "Трансфер, билеты, гид и поддержка - мы берем все заботы на себя.",
+  },
+];
+
+const heroBenefits = [
+  {
+    icon: BadgePercent,
+    title: "Ниже касс",
+    text: "Цены ниже официальных касс и сервисов",
+  },
+  {
+    icon: CircleDollarSign,
+    title: "Без предоплаты",
+    text: "Оплата после экскурсии или при получении билета",
+  },
+  {
+    icon: UserCheck,
+    title: "Местные гиды",
+    text: "Русскоязычные гиды с лицензией",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Надёжно и безопасно",
+    text: "Официальные партнёры и комфортный сервис",
   },
 ];
 
@@ -212,51 +238,113 @@ export default function Home() {
         }}
       />
 
-      <section className="relative min-h-screen overflow-hidden bg-arabella-teal text-white">
+      <section className="relative min-h-[1040px] overflow-hidden bg-[#0C717F] text-white sm:min-h-[960px] lg:min-h-[620px] xl:min-h-[680px]">
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-[61%_center] sm:bg-[64%_center] lg:bg-center"
           style={{
-            backgroundImage: "url('/hero-clean.png')",
+            backgroundImage: "url('/hero-burj-desktop.png')",
           }}
         />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(3,59,68,0.98)_0%,rgba(5,91,99,0.90)_30%,rgba(6,105,114,0.58)_53%,rgba(8,120,130,0.14)_76%,rgba(8,120,130,0.02)_100%)] lg:bg-[linear-gradient(90deg,rgba(5,93,100,0.98)_0%,rgba(7,113,121,0.90)_29%,rgba(10,132,142,0.34)_52%,rgba(10,132,142,0.04)_74%,rgba(10,132,142,0)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(1,32,39,0.18)_0%,rgba(1,32,39,0.08)_44%,rgba(1,18,22,0.74)_100%)] lg:hidden" />
+        <div className="absolute inset-y-0 left-0 w-[76%] bg-[radial-gradient(circle_at_12%_36%,rgba(255,255,255,0.10),rgba(255,255,255,0)_36%)] lg:w-[58%]" />
 
-        <div className="relative flex min-h-screen w-full flex-col justify-center px-5 pb-36 pt-32 sm:px-10 lg:px-[4.6vw]">
-          <div className="max-w-[820px] lg:max-w-[54vw]">
-            <h1 className="text-4xl font-extrabold leading-tight drop-shadow-[0_5px_16px_rgba(0,0,0,0.22)] sm:text-5xl lg:text-[58px] xl:text-[64px]">
-              Дубай и Абу-Даби без забот — экскурсии, сафари, яхты
+        <div className="relative flex min-h-[1040px] w-full flex-col justify-end px-6 pb-40 pt-36 sm:min-h-[960px] sm:px-10 lg:min-h-[620px] lg:justify-center lg:px-[8vw] lg:pb-28 lg:pt-28 xl:min-h-[680px] xl:pb-36">
+          <div className="max-w-[650px] lg:max-w-[46vw] xl:max-w-[660px]">
+            <span className="hidden rounded-full border border-white/15 bg-white/10 px-5 py-2 text-xs font-bold text-white/90 shadow-[0_8px_24px_rgba(0,0,0,0.12)] backdrop-blur sm:text-sm lg:inline-flex">
+              №1 в организации экскурсий в ОАЭ
+            </span>
+            <h1 className="text-[48px] font-extrabold uppercase leading-[1.08] tracking-normal drop-shadow-[0_5px_16px_rgba(0,0,0,0.22)] sm:text-[56px] lg:mt-7 lg:text-[54px] xl:text-[62px]">
+              Лучшие экскурсии и билеты в ОАЭ
             </h1>
-            <p className="mt-7 max-w-xl text-xl leading-8 text-white/92 sm:text-2xl sm:leading-10">
-              Местный организатор в ОАЭ. Без предоплат, трансфер включён,
-              русскоязычный гид. Более 300 отзывов на Авито.
+            <p className="mt-7 max-w-xl text-[26px] font-medium leading-[1.34] text-white/94 sm:text-3xl lg:max-w-2xl lg:text-2xl lg:font-semibold lg:leading-10">
+              Без предоплаты <span className="px-1 text-arabella-orange">•</span>{" "}
+              Ниже касс <span className="px-1 text-arabella-orange">•</span>{" "}
+              Местный организатор
             </p>
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <div className="mt-9 flex items-center gap-5">
+              <div className="flex -space-x-3">
+                {["А", "И", "Е", "М"].map((letter, index) => (
+                  <span
+                    key={letter}
+                    className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-white bg-arabella-orange text-sm font-extrabold text-white shadow-soft lg:h-12 lg:w-12"
+                    style={{ opacity: 1 - index * 0.04 }}
+                  >
+                    {letter}
+                  </span>
+                ))}
+              </div>
+              <p className="max-w-[250px] text-xl font-bold leading-7 text-white/94 lg:max-w-[220px] lg:text-base lg:leading-5">
+                <span className="font-extrabold">25 000+</span> довольных
+                путешественников
+              </p>
+            </div>
+            <div className="mt-12 flex flex-col gap-6 lg:mt-10 lg:flex-row lg:gap-4">
               <Link
                 href="#excursions"
-                className="inline-flex h-14 items-center justify-center rounded-md bg-arabella-orange px-8 text-base font-bold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-[#c96f2d]"
+                className="inline-flex h-20 items-center justify-center gap-5 rounded-[22px] bg-arabella-orange px-9 text-3xl font-extrabold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-[#c96f2d] lg:h-14 lg:gap-3 lg:rounded-full lg:text-base"
               >
-                Выбрать экскурсию
+                Смотреть экскурсии
+                <span aria-hidden="true" className="text-5xl leading-none lg:text-2xl">
+                  →
+                </span>
               </Link>
               <Link
                 href="https://t.me/margules"
-                className="inline-flex h-14 items-center justify-center gap-3 rounded-md border-2 border-white/80 px-8 text-base font-bold text-white transition hover:bg-white/10"
+                className="inline-flex h-20 items-center justify-center gap-4 rounded-[22px] border border-white/85 bg-white/5 px-8 text-3xl font-extrabold text-white backdrop-blur transition hover:bg-white/10 lg:h-14 lg:gap-3 lg:rounded-full lg:text-base"
               >
-                <Send aria-hidden="true" size={22} strokeWidth={2.5} />
-                Написать в Telegram
+                <Send aria-hidden="true" className="h-8 w-8 lg:h-[22px] lg:w-[22px]" strokeWidth={2.5} />
+                Связаться в Telegram
               </Link>
             </div>
           </div>
         </div>
         <svg
-          className="absolute bottom-0 left-0 h-24 w-full text-white drop-shadow-[0_-12px_35px_rgba(255,255,255,0.28)] sm:h-36"
-          viewBox="0 0 1440 160"
+          className="absolute bottom-0 left-0 h-24 w-full text-arabella-orange sm:h-32 lg:h-36 xl:h-40"
+          viewBox="0 0 1440 190"
           preserveAspectRatio="none"
           aria-hidden="true"
         >
           <path
             fill="currentColor"
-            d="M0 86L80 73.3C160 61 320 35 480 47.8C640 61 800 112 960 114.2C1120 116 1280 70 1360 47.8L1440 26V160H0V86Z"
+            d="M0 92C156 124 324 140 496 126C682 110 802 64 980 72C1168 80 1306 58 1440 24V190H0V92Z"
           />
         </svg>
+        <svg
+          className="absolute bottom-0 left-0 h-20 w-full text-white drop-shadow-[0_-12px_35px_rgba(255,255,255,0.28)] sm:h-28 lg:h-32 xl:h-36"
+          viewBox="0 0 1440 170"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path
+            fill="currentColor"
+            d="M0 90C154 118 318 128 486 114C670 98 788 56 964 64C1164 74 1292 58 1440 20V170H0V90Z"
+          />
+        </svg>
+      </section>
+
+      <section className="bg-white px-4 pb-8 pt-0 sm:px-10 lg:px-[7.4vw]">
+        <div className="mx-auto grid max-w-7xl grid-cols-4 gap-3 border-b border-slate-200 py-9 md:grid-cols-4 xl:gap-10">
+          {heroBenefits.map((item) => {
+            const Icon = item.icon;
+
+            return (
+              <div key={item.title} className="flex flex-col items-center gap-4 text-center lg:flex-row lg:text-left">
+                <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-[#0D7A7A]/15 text-[#0D7A7A]">
+                  <Icon aria-hidden="true" className="h-9 w-9" strokeWidth={1.8} />
+                </span>
+                <div>
+                  <h3 className="text-base font-extrabold leading-5 text-arabella-ink sm:text-lg">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-base lg:mt-1 lg:text-sm lg:leading-5">
+                    {item.text}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </section>
 
       <section id="excursions" className="bg-white px-5 pb-9 pt-6 sm:px-10 lg:px-[4.6vw]">
